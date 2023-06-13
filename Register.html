@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Citizen Security Registration</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 500px;
+    margin: 0 auto;
+  }
+  
+  .form-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    resize: none;
+  }
+  
+  .btn {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .btn:hover {
+    background-color: #004477;
+  }
+  
+  .popup-container {
+    display: none; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff; 
+    padding: 20px; 
+    border: 1px solid #ccc;
+    width: 400px;
+  }
+  </style>
+
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 class="form-header">Citizen Security Registration</h1>
+
+  <form action="Employment.html" method="post" id="citizen-security-registration-form">
+    <input type="text" class="form-control" name="name" placeholder="Name">
+    <input type="text" class="form-control" name="surname" placeholder="Surname">
+    <input type="email" class="form-control" name="email" placeholder="Email address">
+    <input type="tel" class="form-control" name="phone" placeholder="Phone number">
+    <input type="text" class="form-control" name="id_number" placeholder="ID number">
+    <input type="text" class="form-control" name="physical_address" placeholder="Physical address">
+    <input type="text" class="form-control" name="postal_address" placeholder="Postal address">
+    <input type="text" class="form-control" name="citizenship" placeholder="Citizenship">
+    <input type="text" class="form-control" name="language" placeholder="Language">
+    <input type="text" class="form-control" name="gender" placeholder="Gender">
+    <input type="text" class="form-control" name="date_of_birth" placeholder="Date of birth">
+    <input type="text" class="form-control" name="interests" placeholder="Interests">
+    <input type="text" class="form-control" name="volunteer_experience" placeholder="Volunteer experience">
+    <div class="south-african">
+      <label for="south_african">Are you a South African?</label>
+      <input type="checkbox" id="south_african" name="south_african" value="yes">
+    </div>
+    <input type="text" class="form-control" name="employment_equity_information" placeholder="Employment Equity Information (Black, White, Coloured or Other )">
+    <br />
+    <label for="photo">Upload Photo</label>
+    <input type="file" name="photo" id="photo">
+    <input type="submit" class="btn" value="Next" style="margin-bottom: 20px;">
+  </form>
+  <footer>
+    <div class="container">
+      <p>
+        By submitting this form, you consent to the processing of your personal information in accordance with our privacy policy.
+        <a href="#">View our privacy policy</a>
+      </p>
+    </div>
+  </footer>
+  
+</div>
+</body>
+</html>

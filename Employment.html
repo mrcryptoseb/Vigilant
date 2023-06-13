@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About you</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.btn {
+  background-color: #008CBA;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #004477;
+}
+
+.popup-container {
+  display: none; 
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background-color: #fff; 
+  padding: 20px; 
+  border: 1px solid #ccc;
+  width: 400px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1 class="form-header">Citizen Security Registration</h1>
+
+  <form id="form" action="/submit" method="post">
+    <div class="About you">
+      <label for="About you">About you</label>
+      <input type="text" class="form-control" name="About you" placeholder="What are your goals for this position?">
+    </div>
+    
+    <div class="Availability">
+      <label for="Availability">Availability</label>
+      <input type="text" class="form-control" name="Availability" placeholder="Are you available to work any hours?">
+    </div>
+    
+    
+    <div class="experience">
+      <label for="experience">Experience</label>
+      <input type="text" class="form-control" name="experience" placeholder="How much experience do you have in security?">
+      <input type="text" class="form-control" name="experience2" placeholder="What type of security experience do you have?">
+    </div>
+    
+    <div class="training">
+      <label for="training">Training</label>
+      <input type="text" class="form-control" name="training" placeholder="Have you received any formal training in security?">
+      <input type="text" class="form-control" name="training2" placeholder="What type of training have you received?">
+    </div>
+    
+    <div class="skills">
+      <label for="skills">Skills</label>
+      <input type="text" class="form-control" name="skills" placeholder="What skills do you have that would be relevant to security? For example, do you have any experience with firearms, self-defense, or first aid?">
+    </div>
+
+    <input type="submit" class="btn" value="Done">
+  </form>
+
+  <div id="popup" class="popup-container">
+    <h2>Thank you for registering!</h2>
+    <p>We will review your application and contact you shortly.</p>
+    <p>In the meantime, please visit our website for more information about our program and how you can get involved in your community.</p>
+    <p><a href="https://www.citizensecurity.org/">Visit our website</a></p>
+  </div>
+
+</div>
+
+<script>
+document.getElementById('form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  showPopup();
+});
+
+function showPopup() {
+  var popup = document.getElementById("popup");
+  popup.style.display = "block";
+  setTimeout(closePopup, 3000);
+}
+
+function closePopup() {
+  var popup = document.getElementById("popup");
+  popup.style.display = "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+INSERT INTO citizen_security_registration (
+    name,
+    surname,
+    email,
+    phone,
+    id_number,
+    physical_address,
+    postal_address,
+    citizenship,
+    language,
+    gender,
+    date_of_birth,
+    interests,
+    volunteer_experience,
+    south_african,
+    employment_equity_information,
+    photo
+)
+VALUES (
+    @name,
+    @surname,
+    @email,
+    @phone,
+    @id_number,
+    @physical_address,
+    @postal_address,
+    @citizenship,
+    @language,
+    @gender,
+    @date_of_birth,
+    @interests,
+    @volunteer_experience,
+    @south_african,
+    @employment_equity_information,
+    @photo
+);

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vigilant</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.alert {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.chat {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.report {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.login {
+  float: right;
+  margin-top: 10px;
+}
+
+.dashboard {
+  margin-top: 20px;
+}
+
+.total-suspicious-activity {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #008CBA;
+  color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #004477;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Vigilant</h1>
+
+  <div class="alert">
+    <h2>Suspicious Activity</h2>
+    <p>There has been suspicious activity reported in your neighborhood. Please be on the lookout for anything suspicious.</p>
+  </div>
+
+  <div class="chat">
+    <h2>Chat</h2>
+    <p>Chat with other residents in your neighborhood to share information about suspicious activity and crimes.</p>
+  </div>
+
+  <div class="report">
+    <h2>Report</h2>
+    <p>Report suspicious activity and crimes to the police.</p>
+  </div>
+
+  <button class="map">View Map</button>
+
+  <div class="login">
+    <a href="#" id="login-google">Login with Google</a>
+    <a href="C:\Users\Jerome\Desktop\ATE\New folder\register.html" class="btn btn-primary">Register as Citizen Security</a>
+  </div>
+
+
+  
+
+  <script src="https://apis.google.com/js/platform.js"></script>
+
+  <script>
+    function loginWithGoogle() {
+      var auth2 = gapi.auth2.init({
+        client_id: 'YOUR_CLIENT_ID',
+        scope: 'https://www.googleapis.com/auth/plus.login'
+      });
+
+      auth2.signIn().then(function(result) {
+        // The user is signed in
+        var idToken = result.id_token;
+        // Do something with the idToken
+
+        // Get the total number of reported suspicious activity
+        var request = new XMLHttpRequest();
+        request.open("GET", "https://api.myjson.com/bins/23549");
+        request.onload = function() {
+          if (request.status === 200) {
+            var response = JSON.parse(request.responseText);
+            var totalSuspiciousActivity = response.totalSuspiciousActivity;
+            document.getElementById("total-suspicious-activity").innerHTML = totalSuspiciousActivity;
+          }
+        };
+        request.send();
+      }, function(error) {
+        // The user is not signed in
+      });
+    }
+  </script>
+  <script>
+   function register() {
+  // Get the user's name and email address
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+
+  // Create a new user object
+  var user = {
+    name: name,
+    email: email
+  };
+
+  // Send the user object to the server
+  var request = new XMLHttpRequest();
+  request.open("POST", "/register");
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send(JSON.stringify(user));
+
+  // Handle the response
+  request.onload = function() {
+    if (request.status === 200) {
+      // The user was registered successfully
+      window.location.href = "/dashboard";
+    } else {
+      // There was an error registering the user
+      alert("There was an error registering the user. Please try again.");
+    }
+  };
+}
+  </script>
+</body>
+</html>
